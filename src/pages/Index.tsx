@@ -4,7 +4,7 @@ import UrlParser from "@/components/UrlParser";
 import SentimentResults from "@/components/SentimentResults";
 import PriceTracker from "@/components/PriceTracker";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BarChart2, DollarSign, ArrowUp } from "lucide-react";
+import { BarChartIcon, DollarSign, ArrowUp } from "lucide-react";
 
 const Index = () => {
   return (
@@ -32,7 +32,7 @@ const Index = () => {
           <Tabs defaultValue="sentiment" className="mt-14">
             <TabsList className="grid w-full grid-cols-2 mb-8 bg-secondary/40 p-1">
               <TabsTrigger value="sentiment" className="flex items-center gap-2 py-3 data-[state=active]:bg-accent data-[state=active]:text-white">
-                <BarChart2 className="h-4 w-4" />
+                <BarChartIcon className="h-4 w-4" />
                 Sentiment Analysis
               </TabsTrigger>
               <TabsTrigger value="price" className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-white">
@@ -57,7 +57,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <BarChart2 className="h-6 w-6 text-accent mr-2" />
+                <BarChartIcon className="h-6 w-6 text-accent mr-2" />
                 <span className="text-xl font-bold gradient-text">ReviewInsight</span>
               </div>
               <p className="text-sm text-muted-foreground">

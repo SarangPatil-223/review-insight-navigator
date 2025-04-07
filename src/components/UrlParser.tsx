@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Search, Loader2, Link, Upload, ShoppingBag, ArrowRight } from "lucide-react";
+import { Search, Loader2, Link, Upload, ShoppingBag, ArrowRight, BarChartIcon, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -63,7 +63,7 @@ const UrlParser = () => {
           <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="flex-1 bg-secondary/30 p-5 rounded-lg text-center border border-white/5 hover:border-white/10 transition-all">
               <div className="inline-flex items-center justify-center p-3 bg-accent/10 rounded-full mb-3">
-                <BarChart2 className="h-6 w-6 text-accent" />
+                <BarChartIcon className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-lg font-semibold mb-1 text-white">Sentiment Analysis</h3>
               <p className="text-sm text-muted-foreground">Uncover detailed sentiment patterns in reviews</p>

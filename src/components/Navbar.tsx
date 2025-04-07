@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, BarChart2, DollarSign, Heart, Home, ShoppingCart, User, Search } from "lucide-react";
+import { Menu, X, BarChartIcon, DollarSign, Heart, Home, ShoppingCart, User, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-2">
-              <BarChart2 className="h-8 w-8 text-accent" />
+              <BarChartIcon className="h-8 w-8 text-accent" />
               <span className="text-xl font-bold gradient-text">ReviewInsight</span>
             </a>
           </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
               <span>Home</span>
             </Button>
             <Button variant="ghost" className="flex items-center gap-2">
-              <BarChart2 size={18} />
+              <BarChartIcon size={18} />
               <span>Analysis</span>
             </Button>
             <Button variant="ghost" className="flex items-center gap-2">
@@ -125,7 +125,7 @@ const Navbar = () => {
               <span>Home</span>
             </a>
             <a href="#" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
-              <BarChart2 size={18} />
+              <BarChartIcon size={18} />
               <span>Sentiment Analysis</span>
             </a>
             <a href="#" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
