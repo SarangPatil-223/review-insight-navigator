@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Search, Loader2, Link, Upload, ShoppingBag } from "lucide-react";
+import { Search, Loader2, Link, Upload, ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -51,42 +51,52 @@ const UrlParser = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <Card className="w-full border border-white/10 shadow-lg card-hover glass-card">
         <CardHeader className="text-center pb-2">
-          <CardTitle className="text-2xl font-bold gradient-text">Product Analysis</CardTitle>
-          <CardDescription className="text-base text-muted-foreground">Enter an Amazon product URL to analyze reviews and track prices</CardDescription>
+          <CardTitle className="text-2xl md:text-3xl font-bold gradient-text">Product Intelligence Hub</CardTitle>
+          <CardDescription className="text-base text-muted-foreground max-w-2xl mx-auto">
+            Analyze Amazon product reviews with AI-powered sentiment analysis and track price fluctuations
+          </CardDescription>
         </CardHeader>
         <CardContent className="pt-4">
-          <div className="bg-secondary/30 p-6 rounded-lg mb-4 text-center border border-white/5">
-            <Upload className="h-12 w-12 mx-auto mb-2 text-primary opacity-80" />
-            <h3 className="text-lg font-semibold mb-1 text-white">Analyze Any Amazon Product</h3>
-            <p className="text-sm text-muted-foreground">Get sentiment analysis and price tracking with a single click</p>
+          <div className="flex flex-col md:flex-row gap-6 mb-6">
+            <div className="flex-1 bg-secondary/30 p-5 rounded-lg text-center border border-white/5 hover:border-white/10 transition-all">
+              <div className="inline-flex items-center justify-center p-3 bg-accent/10 rounded-full mb-3">
+                <BarChart2 className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold mb-1 text-white">Sentiment Analysis</h3>
+              <p className="text-sm text-muted-foreground">Uncover detailed sentiment patterns in reviews</p>
+            </div>
+            
+            <div className="flex-1 bg-secondary/30 p-5 rounded-lg text-center border border-white/5 hover:border-white/10 transition-all">
+              <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-3">
+                <DollarSign className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold mb-1 text-white">Price Intelligence</h3>
+              <p className="text-sm text-muted-foreground">Monitor historical prices to find the best deals</p>
+            </div>
           </div>
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="product-url" className="text-sm font-medium text-muted-foreground">
+              <Label htmlFor="product-url" className="text-sm font-medium text-muted-foreground flex items-center gap-1.5">
+                <Link className="h-4 w-4" />
                 Product URL
               </Label>
-              <div className="relative flex flex-col md:flex-row gap-3">
-                <div className="relative flex-grow group">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5 group-focus-within:text-primary transition-colors">
-                    <Link className="h-5 w-5" />
-                  </div>
-                  <Input
-                    id="product-url"
-                    type="text"
-                    placeholder="Paste Amazon product URL..."
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    className="pl-10 pr-4 py-6 w-full bg-background/50 border-secondary focus:border-primary transition-all"
-                  />
-                </div>
+              <div className="relative">
+                <Input
+                  id="product-url"
+                  type="text"
+                  placeholder="Paste Amazon product URL..."
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  className="pl-4 pr-4 py-6 w-full bg-background/50 border-secondary focus:border-primary focus:ring-primary/20 transition-all"
+                />
                 <Button 
                   type="submit" 
                   disabled={isLoading || !url.trim()} 
-                  className="h-12 px-6 font-semibold transition-all hover:shadow-md bg-primary hover:bg-primary/90"
+                  className="absolute right-1 top-1 bottom-1 h-auto px-6 font-semibold bg-accent hover:bg-accent/90 transition-all"
                 >
                   {isLoading ? (
                     <>
@@ -96,21 +106,38 @@ const UrlParser = () => {
                   ) : (
                     <>
                       <Search className="mr-2 h-4 w-4" />
-                      Analyze Product
+                      Analyze
                     </>
                   )}
                 </Button>
               </div>
             </div>
             
-            <div className="text-center px-2 py-3">
-              <p className="text-sm text-muted-foreground">
-                Our AI will analyze reviews, identify key sentiments, and track price history
-              </p>
+            <div className="bg-accent/5 rounded-lg border border-accent/10 px-4 py-3 mt-4">
+              <div className="flex items-start gap-3">
+                <div className="rounded-full bg-accent/10 p-1.5 mt-0.5">
+                  <ShoppingBag className="h-4 w-4 text-accent" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium mb-1">How it works</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Our AI analyzes thousands of reviews, identifies key sentiments, and tracks pricing trends to give you 
+                    comprehensive product intelligence before making your purchase decision.
+                  </p>
+                </div>
+              </div>
             </div>
           </form>
         </CardContent>
       </Card>
+      
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-2xl font-bold">Featured Products</h2>
+        <Button variant="outline" className="group">
+          View all 
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Button>
+      </div>
       
       <FeaturedProducts />
     </div>

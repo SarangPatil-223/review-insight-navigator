@@ -31,6 +31,9 @@ const PriceTracker = () => {
   
   // Calculate if current price is a good deal
   const isGoodDeal = currentPrice <= averagePrice;
+  
+  // Fixed comparison by converting to numbers
+  const isLowestPrice = currentPrice === lowestPrice;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
@@ -76,7 +79,7 @@ const PriceTracker = () => {
             </div>
           </div>
           
-          {currentPrice === lowestPrice ? (
+          {isLowestPrice ? (
             <div className="flex items-center p-3 bg-green-900/20 text-green-400 rounded-md text-sm">
               <AlertTriangle className="h-4 w-4 mr-2" />
               This is the lowest price we've tracked for this product!

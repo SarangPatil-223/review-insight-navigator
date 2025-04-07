@@ -81,3 +81,27 @@
     transform: translateY(0);
   }
 }
+
+/* Professional scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary/30;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary rounded-full hover:bg-primary/70 transition-colors;
+}
+
+/* Smooth transitions */
+a, button {
+  @apply transition-all duration-200;
+}
+
+/* Professional selection styling */
+::selection {
+  @apply bg-accent/30 text-white;
+}
