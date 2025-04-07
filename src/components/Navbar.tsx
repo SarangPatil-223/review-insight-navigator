@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, BarChartIcon, DollarSign, Heart, Home, ShoppingCart, User, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,10 +22,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <BarChartIcon className="h-8 w-8 text-accent" />
               <span className="text-xl font-bold gradient-text">ReviewInsight</span>
-            </a>
+            </Link>
           </div>
           
           {/* Desktop Menu */}
@@ -53,30 +54,42 @@ const Navbar = () => {
               </Button>
             )}
             
-            <Button variant="ghost" className="flex items-center gap-2">
-              <Home size={18} />
-              <span>Home</span>
+            <Button variant="ghost" className="flex items-center gap-2" asChild>
+              <Link to="/">
+                <Home size={18} />
+                <span>Home</span>
+              </Link>
             </Button>
-            <Button variant="ghost" className="flex items-center gap-2">
-              <BarChartIcon size={18} />
-              <span>Analysis</span>
+            <Button variant="ghost" className="flex items-center gap-2" asChild>
+              <Link to="/products">
+                <BarChartIcon size={18} />
+                <span>Analysis</span>
+              </Link>
             </Button>
-            <Button variant="ghost" className="flex items-center gap-2">
-              <DollarSign size={18} />
-              <span>Pricing</span>
+            <Button variant="ghost" className="flex items-center gap-2" asChild>
+              <Link to="/products">
+                <DollarSign size={18} />
+                <span>Pricing</span>
+              </Link>
             </Button>
             
             <div className="flex items-center ml-2 space-x-1">
-              <Button variant="ghost" size="icon" className="relative">
-                <Heart size={18} />
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">3</span>
+              <Button variant="ghost" size="icon" className="relative" asChild>
+                <Link to="/wishlist">
+                  <Heart size={18} />
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">3</span>
+                </Link>
               </Button>
-              <Button variant="ghost" size="icon" className="relative">
-                <ShoppingCart size={18} />
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">2</span>
+              <Button variant="ghost" size="icon" className="relative" asChild>
+                <Link to="/cart">
+                  <ShoppingCart size={18} />
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">2</span>
+                </Link>
               </Button>
-              <Button variant="ghost" size="icon">
-                <User size={18} />
+              <Button variant="ghost" size="icon" asChild>
+                <Link to="/account">
+                  <User size={18} />
+                </Link>
               </Button>
             </div>
           </div>
@@ -86,9 +99,11 @@ const Navbar = () => {
             <Button variant="ghost" size="icon" onClick={toggleSearch} className="mr-1">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="relative mr-1">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">2</span>
+            <Button variant="ghost" size="icon" className="relative mr-1" asChild>
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] text-white">2</span>
+              </Link>
             </Button>
             <Button variant="ghost" onClick={toggleMenu} size="icon">
               {isMenuOpen ? (
@@ -120,26 +135,26 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-secondary/95 backdrop-blur-md shadow-lg rounded-b-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="/" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
+            <Link to="/" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
               <Home size={18} />
               <span>Home</span>
-            </a>
-            <a href="#" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
+            </Link>
+            <Link to="/products" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
               <BarChartIcon size={18} />
               <span>Sentiment Analysis</span>
-            </a>
-            <a href="#" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
+            </Link>
+            <Link to="/products" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
               <DollarSign size={18} />
               <span>Price Tracking</span>
-            </a>
-            <a href="#" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
+            </Link>
+            <Link to="/wishlist" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
               <Heart size={18} />
               <span>Saved Items</span>
-            </a>
-            <a href="#" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
+            </Link>
+            <Link to="/account" className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-white/5">
               <User size={18} />
               <span>Account</span>
-            </a>
+            </Link>
           </div>
         </div>
       )}
