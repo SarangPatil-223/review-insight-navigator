@@ -49,7 +49,7 @@ const SentimentResults = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
       {/* Sentiment Overview */}
-      <Card className="card-hover">
+      <Card className="card-hover border border-white/10 bg-secondary/30">
         <CardHeader>
           <CardTitle>Sentiment Analysis</CardTitle>
           <CardDescription>Overall sentiment breakdown of reviews</CardDescription>
@@ -78,7 +78,7 @@ const SentimentResults = () => {
       </Card>
 
       {/* Rating Distribution */}
-      <Card className="card-hover">
+      <Card className="card-hover border border-white/10 bg-secondary/30">
         <CardHeader>
           <CardTitle>Rating Distribution</CardTitle>
           <CardDescription>Star rating breakdown</CardDescription>
@@ -97,7 +97,7 @@ const SentimentResults = () => {
       </Card>
 
       {/* Common Keywords */}
-      <Card className="card-hover">
+      <Card className="card-hover border border-white/10 bg-secondary/30">
         <CardHeader>
           <CardTitle>Common Keywords</CardTitle>
           <CardDescription>Frequently mentioned terms</CardDescription>
@@ -118,7 +118,7 @@ const SentimentResults = () => {
       </Card>
 
       {/* Product Score Analysis */}
-      <Card className="card-hover">
+      <Card className="card-hover border border-white/10 bg-secondary/30">
         <CardHeader>
           <CardTitle>Product Score Analysis</CardTitle>
           <CardDescription>Sentiment scores by category</CardDescription>
@@ -135,10 +135,8 @@ const SentimentResults = () => {
                   value={item.score}
                   className="h-2"
                   style={{
-                    background: "#f3f4f6",
-                    "--tw-gradient-from": "#ef4444",
-                    "--tw-gradient-to": "#10b981",
-                    "--tw-gradient-stops": "var(--tw-gradient-from), var(--tw-gradient-to)",
+                    background: "#27272a",
+                    backgroundImage: "linear-gradient(to right, #ef4444, #10b981)"
                   }}
                 />
               </div>
