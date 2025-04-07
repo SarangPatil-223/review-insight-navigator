@@ -55,7 +55,7 @@ const FeaturedProducts = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {featuredProducts.map((product) => (
-          <Card key={product.id} className="product-card product-card-hover border border-white/10 bg-secondary/30 overflow-hidden">
+          <Card key={product.id} className="product-card product-card-hover border border-white/10 bg-secondary/30 overflow-hidden group">
             <div className="aspect-square relative overflow-hidden">
               <img 
                 src={product.image} 
